@@ -1,111 +1,114 @@
 # WhisperCircle
 
-A full-stack anonymous talking-club web application for a two-person college project.
+A full-stack anonymous talking-club web application built as a two-person college project. Users can join topic-based rooms, chat in real time, start private conversations, share confessions, and report or block harmful users.
 
-## Features in this starter
-1. Guest identity generation
-2. Topic-based group rooms
-3. Real-time group chat with Socket.IO
-4. Private one-to-one messages
-5. Online member counts
-6. Block users
-7. Report messages/users
-8. Basic moderator report queue
-9. Responsive dark interface
+## Features
 
-## Stack
-- Frontend: React + Vite
-- Backend: Node.js + Express
-- Real-time: Socket.IO
-- Persistence: MongoDB + Mongoose (optional for local demo; in-memory fallback is included)
-- Security: Helmet, API/socket rate limits, input validation, guest session token
+1. Anonymous guest identity generation
+2. Topic-based room discovery
+3. Real-time group messaging with Socket.IO
+4. Private one-to-one messaging
+5. Live room member counts
+6. Anonymous confessions room
+7. User blocking
+8. Message and user reporting
+9. Basic moderator report queue
+10. Responsive dark interface
+
+## Technology stack
+
+- **Frontend:** React, Vite, CSS
+- **Backend:** Node.js, Express
+- **Real-time communication:** Socket.IO
+- **Database:** MongoDB and Mongoose (optional for local demo; in-memory fallback is included)
+- **Security:** Helmet, API rate limiting, input validation, guest session token
 
 ## Requirements
+
 - Node.js 20 or newer recommended
 - npm
-- MongoDB local or Atlas connection (optional; without it, data is temporary and disappears when server restarts)
+- MongoDB local installation or MongoDB Atlas connection (optional)
 
-## Run locally
+Without MongoDB, the server uses temporary in-memory storage. Messages and reports are cleared when the server restarts.
 
-### 1. Start the backend
-```bash
+## Run locally on Windows
+
+Open two terminals in the project root.
+
+### 1. Configure and start the backend
+
+PowerShell:
+
+```powershell
 cd server
-cp .env.example .env
+Copy-Item .env.example .env
 npm install
 npm run dev
 ```
 
-### 2. Start the frontend in a second terminal
-```bash
+Command Prompt:
+
+```cmd
+cd server
+copy .env.example .env
+npm install
+npm run dev
+```
+
+The backend runs on `http://localhost:4000`.
+
+The `.env.example` file contains safe local defaults. MongoDB is optional; leave `MONGODB_URI` blank to use in-memory storage. Do not commit your real `.env` file or share secrets.
+
+### 2. Start the frontend
+
+In a second terminal, from the project root:
+
+```powershell
 cd client
 npm install
 npm run dev
 ```
-Open the Vite URL shown in your terminal, normally `http://localhost:5173`.
 
-If MongoDB is available, put its connection string in `server/.env` as `MONGODB_URI=...` and restart the server. The app can run without MongoDB using temporary in-memory storage.
+Open the Vite URL shown in the terminal, normally [http://localhost:5173](http://localhost:5173).
 
-## Run the automated tests
-```bash
+## Run automated backend tests
+
+From the project root:
+
+```powershell
 cd server
 npm install
-npm test        # 12 backend tests; starts its own server on port 4100 (in-memory storage)
+npm test
 ```
 
-## What changed from the starter
-- Moderation API is now closed in production unless `DEMO_MODERATOR_KEY` is set and sent as the `x-demo-moderator` header.
-- Reports are built on the server from the stored message (reported user + message text), so a client cannot fake them; the queue shows the quoted message.
-- Private messages can be reported; private messages and reports are rate-limited.
-- Mobile: members shown as a chip strip (private chat works on phones); Leave/Moderation buttons added to the bottom bar; Back button in private chat.
+The Node.js test runner starts its own test server on port 4100 and uses in-memory storage.
 
-## Try it
-- Open the app in two separate browser profiles or an incognito window.
-- Enter different guest nicknames.
-- Join the same room and send messages.
-- Click a user in the room member list to start a private conversation.
-- Use the report button on messages and the block button in a private chat.
-- The moderator report list is a basic demo feature, not a production moderation console.
+## Demo walkthrough
 
-## Important privacy and safety notes
-This project provides pseudonymous public identities, not guaranteed anonymity. The server handles network requests and session tokens. Do not publish secrets or real personal information. Before public deployment, add persistent user bans, stronger moderation workflows, a privacy notice, retention rules, and abuse monitoring. Do not use this starter to collect sensitive personal data.
+1. Open the application in two separate browser profiles, or use a normal and an incognito window.
+2. Enter different guest nicknames.
+3. Join the same room in both sessions and exchange group messages.
+4. Select another online member to start a private conversation.
+5. Submit a report using the report action on a message.
+6. Open **Demo moderation** to view the report queue.
 
-## GitHub submission
-1. Create a new empty repository on GitHub.
-2. From the project root:
-```bash
-git init
-git add .
-git commit -m "Build WhisperCircle anonymous chat platform"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/whispercircle.git
-git push -u origin main
-```
-Replace `YOUR-USERNAME` with your GitHub username.
+## Configuration
 
-## Team work division (suggested)
-- Student 1: React UI, guest entry, room browser, chat screens, responsive styling.
-- Student 2: Express API, Socket.IO events, MongoDB models, reporting/blocking, testing and deployment.
-- Both: integration, testing, screenshots, report, and presentation.
+The backend reads environment variables from `server/.env`:
 
-## Report screenshots to capture
-1. Guest entry / identity screen
-2. Room directory
-3. Live group chat with two browser sessions
-4. Private chat
-5. Report submission
-6. Moderator report queue
+| Variable | Purpose |
+|---|---|
+| `PORT` | Backend port (default: 4000) |
+| `CLIENT_ORIGIN` | Allowed frontend origin (default: http://localhost:5173) |
+| `MONGODB_URI` | Optional MongoDB connection string |
+| `DEMO_MODERATOR_KEY` | Optional moderator key; required to access moderation routes when `NODE_ENV=production` |
 
-## Project report outline
-- Title page
-- Abstract
-- Problem statement and objectives
-- Existing system and proposed system
-- Technology stack
-- System architecture
-- Feature descriptions
-- Database design
-- Screenshots and test cases
-- Division of work
-- Limitations and future enhancements
-- Conclusion
-- GitHub repository link
+The moderation interface is a demonstration feature, not a production moderation console. Configure real moderator authentication before public deployment.
+
+## Privacy and safety
+
+WhisperCircle provides pseudonymous public identities, not guaranteed anonymity. The server processes network requests and session tokens. Do not publish secrets or real personal information. Before production use, add stronger moderator authentication, persistent block/ban controls, a privacy notice, retention rules, and abuse monitoring. Do not use this demo to collect sensitive personal data.
+
+## Repository
+
+[https://github.com/shreyasgkamath/whispercircle](https://github.com/shreyasgkamath/whispercircle)
