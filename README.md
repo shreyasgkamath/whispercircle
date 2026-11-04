@@ -1,8 +1,8 @@
-# WhisperCircle
+# BitWorld
 
 **Anonymous Talking Club and Discussion Platform** — a full-stack web application for pseudonymous, topic-based conversations.
 
-WhisperCircle lets visitors enter with a chosen or randomly generated nickname, browse six discussion clubs, chat in real time, start private conversations, share anonymous confessions, and use reporting and blocking tools.
+BitWorld lets visitors enter with a chosen or randomly generated nickname, browse six discussion clubs, chat in real time, start private conversations, share anonymous confessions, and use reporting and blocking tools.
 
 ## Features
 
@@ -138,7 +138,7 @@ The moderation queue is a classroom demonstration feature, not a production mode
 
 ## Privacy and safety notes
 
-WhisperCircle provides **pseudonymous public identities, not guaranteed anonymity**. The server handles network requests and session tokens. Do not publish secrets or real personal information. Before production use, add authenticated moderator roles, persistent block/ban controls, a privacy notice, retention rules, abuse monitoring, and production-grade session handling. Do not use this demo to collect sensitive personal data.
+BitWorld provides **pseudonymous public identities, not guaranteed anonymity**. The server handles network requests and session tokens. Do not publish secrets or real personal information. Before production use, add authenticated moderator roles, persistent block/ban controls, a privacy notice, retention rules, abuse monitoring, and production-grade session handling. Do not use this demo to collect sensitive personal data.
 
 ## Team
 
