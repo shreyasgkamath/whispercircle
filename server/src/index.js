@@ -262,6 +262,6 @@ async function start() {
       console.warn('MongoDB unavailable; using temporary in-memory storage:', e.message);
     }
   } else console.warn('MONGODB_URI not set; using temporary in-memory storage.');
-  server.listen(PORT, () => console.log(`WhisperCircle API running on http://localhost:${PORT}`));
+  server.listen(PORT, () => console.log(`BitWorld API running on http://localhost:${PORT}`));
 }
 start();
