@@ -143,7 +143,7 @@ export default function App() {
 
   return <div className="app-shell">
     <aside className="sidebar">
-      <div className="brand-row"><div className="mini-mark"><MessageCircle size={21}/></div><div><strong>WhisperCircle</strong><small>Talk freely. Stay you.</small></div></div>
+      <div className="brand-row"><div className="mini-mark"><MessageCircle size={21}/></div><div><strong>BitWorld</strong><small>Talk freely. Stay you.</small></div></div>
       <div className="identity-pill"><div className="avatar">{identity.nickname.slice(0,1).toUpperCase()}</div><div className="identity-text"><b>{identity.nickname}</b><small>Anonymous guest</small></div><button title="Leave session" className="icon-button" onClick={leave}><LogOut size={17}/></button></div>
       <div className="side-label">YOUR SPACE</div>
       <button className={`nav-item ${tab==='rooms'?'selected':''}`} onClick={()=>{setTab('rooms');setSelectedUser(null)}}><Hash size={18}/> Explore clubs</button>
@@ -188,7 +188,7 @@ export default function App() {
 
       {tab==='confessions' && <Confessions identity={identity} socket={socketRef.current} onReport={msg=>setShowReport(msg)} />}
 
-      <footer className="footer"><span>WhisperCircle © 2026</span><span><ShieldCheck size={14}/> Pseudonymous by design · Kindness by choice</span></footer>
+      <footer className="footer"><span>BitWorld © 2026</span><span><ShieldCheck size={14}/> Pseudonymous by design · Kindness by choice</span></footer>
     </main>
 
     {showReport && <div className="modal-backdrop" onClick={()=>setShowReport(null)}><div className="modal" onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={()=>setShowReport(null)}><X size={18}/></button><div className="modal-icon"><ShieldAlert size={22}/></div><h3>Report this message</h3><p>Help moderators understand what happened. Reports should be made in good faith.</p><label>Reason</label><select value={reportReason} onChange={e=>setReportReason(e.target.value)}><option>Harassment or bullying</option><option>Hate or discrimination</option><option>Spam or scam</option><option>Sharing personal information</option><option>Other safety concern</option></select><label>Additional details (optional)</label><textarea value={reportDetails} onChange={e=>setReportDetails(e.target.value)} maxLength={500} placeholder="Add context for the moderators..."/><button className="primary full" onClick={submitReport}>Submit report</button></div></div>}
