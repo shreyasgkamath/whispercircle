@@ -1,10 +1,10 @@
-# WhisperCircle Project Report
+# BitWorld Project Report
 
 ## Title
-**WhisperCircle: Anonymous Talking Club and Discussion Platform**
+**BitWorld: Anonymous Talking Club and Discussion Platform**
 
 ## Abstract
-WhisperCircle is a full-stack web application that enables people to participate in topic-based group conversations and private one-to-one chats using pseudonymous guest identities. The platform includes real-time messaging, room discovery, confessions, user blocking, message reporting, and a basic moderation queue. It is intended as an educational project demonstrating frontend development, backend APIs, real-time communication, database persistence, and safety-aware design.
+BitWorld is a full-stack web application that enables people to participate in topic-based group conversations and private one-to-one chats using pseudonymous guest identities. The platform includes real-time messaging, room discovery, confessions, user blocking, message reporting, and a basic moderation queue. It is intended as an educational project demonstrating frontend development, backend APIs, real-time communication, database persistence, and safety-aware design.
 
 ## 1. Problem Statement
 Some people find it difficult to join conversations when their real identity is visible. A pseudonymous platform can lower the barrier to participation, provided that users have reporting and blocking tools and clear expectations for respectful behavior.
@@ -108,7 +108,7 @@ Both team members contributed to integration, final testing, documentation, and 
 - Deploy with HTTPS and production-grade secrets.
 
 ## 12. Conclusion
-WhisperCircle demonstrates how a full-stack application can combine responsive user interfaces, persistent data, real-time communication, and basic community safety features. It offers a foundation for a pseudonymous discussion platform while highlighting the importance of responsible moderation and privacy.
+BitWorld demonstrates how a full-stack application can combine responsive user interfaces, persistent data, real-time communication, and basic community safety features. It offers a foundation for a pseudonymous discussion platform while highlighting the importance of responsible moderation and privacy.
 
 ## GitHub Link
 Add your repository URL here: `https://github.com/YOUR-USERNAME/whispercircle`
